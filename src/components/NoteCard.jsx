@@ -1,6 +1,6 @@
 export default function NoteCard({ post, onDelete }) {
   return (
-    <div className="bg-white p-4 rounded shadow mb-4">
+    <div className="text-white bg-gray-900 p-4 rounded shadow mb-4">
       <h3 className="text-xl font-bold">
         {post.title} {post.mood}
       </h3>

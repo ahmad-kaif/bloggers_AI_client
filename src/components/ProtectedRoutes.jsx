@@ -8,7 +8,7 @@ export default function ProtectedRoute({ children }) {
   const [authChecked, setAuthChecked] = useState(false); // to wait for the check to complete
 
   useEffect(() => {
-    axios.get("http://localhost:8080/auth/check", { withCredentials: true })
+    axios.get("http://localhost:8081/auth/check", { withCredentials: true })
       .then(() => {
         setIsAuthenticated(true);
         setAuthChecked(true);

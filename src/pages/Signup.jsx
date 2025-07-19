@@ -15,7 +15,7 @@ export default function Signup() {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:8080/auth/register",
+        "http://localhost:8081/auth/register",
         { email, password },
         { withCredentials: true }
       );

@@ -13,8 +13,8 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-       await axios.post(
-        "http://localhost:8080/auth/login",
+       const res  = await axios.post(
+        "http://localhost:8081/auth/login",
         { email, password },
         { withCredentials: true }
       );

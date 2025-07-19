@@ -11,7 +11,7 @@ export default function Dashboard() {
   const [posts, setPosts] = useState([]);
 
   const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:8080/posts/get", {
+    const res = await axios.get("http://localhost:8081/posts/get", {
       withCredentials: true,
     });
     setPosts(res.data);
@@ -20,7 +20,7 @@ export default function Dashboard() {
   const createPost = async (e) => {
     e.preventDefault();
     await axios.post(
-      "http://localhost:8080/posts/create",
+      "http://localhost:8081/posts/create",
       { title, content },
       { withCredentials: true }
     );
@@ -31,7 +31,7 @@ export default function Dashboard() {
 
   const deletePost = async (id) => {
     // console.log("Deleting post with ID:", id);
-    await axios.delete(`http://localhost:8080/posts/delete/${id}`, {
+    await axios.delete(`http://localhost:8081/posts/delete/${id}`, {
       withCredentials: true,
     });
     fetchPosts();
@@ -44,7 +44,7 @@ export default function Dashboard() {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:8080/auth/logout",
+        "http://localhost:8081/auth/logout",
         {},
         { withCredentials: true }
       );

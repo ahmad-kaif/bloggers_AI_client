@@ -3,12 +3,16 @@ import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
+
 export default function ProtectedRoute({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [authChecked, setAuthChecked] = useState(false); // to wait for the check to complete
+  const [authChecked, setAuthChecked] = useState(false);
+   const backend_url_production="https://sentimental-blogs-backend.onrender.com";
+   const backend_url_development="http://localhost:8081";
 
   useEffect(() => {
-    axios.get("http://localhost:8081/auth/check", { withCredentials: true })
+    axios.get(`${backend_url_production}/auth/check`, { withCredentials: true })
       .then(() => {
         setIsAuthenticated(true);
         setAuthChecked(true);

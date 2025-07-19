@@ -11,11 +11,15 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const backend_url_production="https://sentimental-blogs-backend.onrender.com";
+  const backend_url_development="http://localhost:8081";
+
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:8081/auth/register",
+        `${backend_url_production}/auth/register`,
+        // "http://localhost:8081/auth/register",
         { email, password },
         { withCredentials: true }
       );

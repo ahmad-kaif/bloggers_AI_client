@@ -10,8 +10,11 @@ export default function Dashboard() {
   const [content, setContent] = useState("");
   const [posts, setPosts] = useState([]);
 
+  const backend_url_production="https://sentimental-blogs-backend.onrender.com";
+  const backend_url_development="http://localhost:8081";
+
   const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:8081/posts/get", {
+    const res = await axios.get(`${backend_url_production}/posts/get`, {
       withCredentials: true,
     });
     setPosts(res.data);
@@ -20,7 +23,7 @@ export default function Dashboard() {
   const createPost = async (e) => {
     e.preventDefault();
     await axios.post(
-      "http://localhost:8081/posts/create",
+      `${backend_url_production}/posts/create`,
       { title, content },
       { withCredentials: true }
     );
@@ -31,7 +34,7 @@ export default function Dashboard() {
 
   const deletePost = async (id) => {
     // console.log("Deleting post with ID:", id);
-    await axios.delete(`http://localhost:8081/posts/delete/${id}`, {
+    await axios.delete(`${backend_url_production}/posts/delete/${id}`, {
       withCredentials: true,
     });
     fetchPosts();
@@ -44,7 +47,7 @@ export default function Dashboard() {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:8081/auth/logout",
+        `${backend_url_production}/auth/logout`,
         {},
         { withCredentials: true }
       );

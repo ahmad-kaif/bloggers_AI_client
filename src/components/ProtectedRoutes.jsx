@@ -9,7 +9,7 @@ export default function ProtectedRoute({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authChecked, setAuthChecked] = useState(false);
    const backend_url_production="https://sentimental-blogs-backend.onrender.com";
-   const backend_url_development="http://localhost:8081";
+  //  const backend_url_development="http://localhost:8081";
 
   useEffect(() => {
     axios.get(`${backend_url_production}/auth/check`, { withCredentials: true })

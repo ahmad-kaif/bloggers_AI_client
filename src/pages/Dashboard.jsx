@@ -11,7 +11,7 @@ export default function Dashboard() {
   const [posts, setPosts] = useState([]);
 
   const backend_url_production="https://sentimental-blogs-backend.onrender.com";
-  const backend_url_development="http://localhost:8081";
+  // const backend_url_development="http://localhost:8081";
 
   const fetchPosts = async () => {
     const res = await axios.get(`${backend_url_production}/posts/get`, {
@@ -62,7 +62,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-black p-6">
       <div className="flex justify-between items-cente text-white bg-gray-900 p-4 rounded shadow mb-6 ">
-        <h1 className="text-3xl font-bold mb-4">Dashboard 🧠</h1>
+        <h1 className="text-3xl font-bold mb-4">Sentimenatl Blogs 🧠</h1>
         <button onClick={handleLogout} className="text-blue-500 cursor-pointer">
           Logout
         </button>
